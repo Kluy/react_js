@@ -21,6 +21,7 @@
 
 .greeting__text {
   font-size: 16px;
+  margin: 0;
   opacity: 0.8;
   text-align: center;
 }
