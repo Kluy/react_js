@@ -18,6 +18,7 @@ body {
   &__title {
     text-align: center;
     height: 32px;
+    text-transform: capitalize;
   }
 
   &__button {
@@ -28,7 +29,6 @@ body {
     border-radius: 8px;
     cursor: pointer;
     outline: none;
-
     &_coral {
       background-color: #ff7f50;
     }

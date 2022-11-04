@@ -10,20 +10,9 @@ class ColorPicker extends Component {
   }
 
   setColorName = (e) => {
-    const color = window.getComputedStyle(e.target).backgroundColor;
-
-    let colorTitle;
-
-    if (color === 'rgb(255, 127, 80)') {
-      colorTitle = 'Coral';
-    } else if (color === 'rgb(0, 255, 255)') {
-      colorTitle = 'Aqua';
-    } else if (color === 'rgb(255, 228, 196)') {
-      colorTitle = 'Bisque';
-    }
-
+    const clasess = e.target.className.split('_');
     this.setState({
-      colorName: colorTitle,
+      colorName: clasess[clasess.length - 1],
     });
   };
 
