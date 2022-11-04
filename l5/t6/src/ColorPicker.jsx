@@ -10,8 +10,20 @@ class ColorPicker extends Component {
   }
 
   setColorName = (e) => {
+    const color = window.getComputedStyle(e.target).backgroundColor;
+
+    let colorTitle;
+
+    if (color === 'rgb(255, 127, 80)') {
+      colorTitle = 'Coral';
+    } else if (color === 'rgb(0, 255, 255)') {
+      colorTitle = 'Aqua';
+    } else if (color === 'rgb(255, 228, 196)') {
+      colorTitle = 'Bisque';
+    }
+
     this.setState({
-      colorName: e.target.dataset.color,
+      colorName: colorTitle,
     });
   };
 
@@ -27,19 +39,16 @@ class ColorPicker extends Component {
         <div className="picker__title">{this.state.colorName}</div>
         <div>
           <button
-            data-color="Coral"
             onMouseLeave={this.clear}
             onMouseOver={this.setColorName}
             className="picker__button picker__button_coral"
           ></button>
           <button
-            data-color="Aqua"
             onMouseLeave={this.clear}
             onMouseOver={this.setColorName}
             className="picker__button picker__button_aqua"
           ></button>
           <button
-            data-color="Bisque"
             onMouseLeave={this.clear}
             onMouseOver={this.setColorName}
             className="picker__button picker__button_bisque"
