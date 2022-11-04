@@ -10,11 +10,9 @@ class ColorPicker extends Component {
   }
 
   setColorName = (e) => {
-    const clasess = e.target.className.split('_');
-    console.log(window.getComputedStyle(e.target).backgroundColor),
-      this.setState({
-        colorName: clasess[clasess.length - 1],
-      });
+    this.setState({
+      colorName: e.target.dataset.color,
+    });
   };
 
   clear = () => {
@@ -29,16 +27,19 @@ class ColorPicker extends Component {
         <div className="picker__title">{this.state.colorName}</div>
         <div>
           <button
+            data-color="Color"
             onMouseLeave={this.clear}
             onMouseOver={this.setColorName}
             className="picker__button picker__button_coral"
           ></button>
           <button
+            data-color="Aqua"
             onMouseLeave={this.clear}
             onMouseOver={this.setColorName}
             className="picker__button picker__button_aqua"
           ></button>
           <button
+            data-color="Bisque"
             onMouseLeave={this.clear}
             onMouseOver={this.setColorName}
             className="picker__button picker__button_bisque"
