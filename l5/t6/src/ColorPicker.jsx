@@ -9,10 +9,15 @@ class ColorPicker extends Component {
     };
   }
 
-  getColor = (e) => {
-    console.log(e.target);
+  setColorName = (e) => {
     this.setState({
-      colorName: 'adsds',
+      colorName: window.getComputedStyle(e.target).backgroundColor,
+    });
+  };
+
+  clear = (e) => {
+    this.setState({
+      colorName: '',
     });
   };
 
@@ -22,15 +27,18 @@ class ColorPicker extends Component {
         <div className="picker__title">{this.state.colorName}</div>
         <div>
           <button
-            onMouseOver={this.getColor}
+            onMouseLeave={this.clear}
+            onMouseOver={this.setColorName}
             className="picker__button picker__button_coral"
           ></button>
           <button
-            onMouseOver={this.getColor}
+            onMouseLeave={this.clear}
+            onMouseOver={this.setColorName}
             className="picker__button picker__button_aqua"
           ></button>
           <button
-            onMouseOver={this.getColor}
+            onMouseLeave={this.clear}
+            onMouseOver={this.setColorName}
             className="picker__button picker__button_bisque"
           ></button>
         </div>
