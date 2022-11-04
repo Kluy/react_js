@@ -27,7 +27,7 @@ class ColorPicker extends Component {
         <div className="picker__title">{this.state.colorName}</div>
         <div>
           <button
-            data-color="Color"
+            data-color="Coral"
             onMouseLeave={this.clear}
             onMouseOver={this.setColorName}
             className="picker__button picker__button_coral"
