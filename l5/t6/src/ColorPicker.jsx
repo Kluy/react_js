@@ -10,12 +10,14 @@ class ColorPicker extends Component {
   }
 
   setColorName = (e) => {
-    this.setState({
-      colorName: window.getComputedStyle(e.target).backgroundColor,
-    });
+    const clasess = e.target.className.split('_');
+    console.log(window.getComputedStyle(e.target).backgroundColor),
+      this.setState({
+        colorName: clasess[clasess.length - 1],
+      });
   };
 
-  clear = (e) => {
+  clear = () => {
     this.setState({
       colorName: '',
     });
