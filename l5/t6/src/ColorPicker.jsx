@@ -9,18 +9,15 @@ class ColorPicker extends Component {
     };
   }
 
-  setColorName = (e) => {
-    const color = window.getComputedStyle(e.target).backgroundColor;
-    console.log(color);
-
-    this.setState({
-      colorName: window.getComputedStyle(e.target).backgroundColor,
-    });
-  };
-
   clear = () => {
     this.setState({
       colorName: '',
+    });
+  };
+
+  setColorName = (color) => {
+    this.setState({
+      colorName: color,
     });
   };
 
@@ -31,17 +28,17 @@ class ColorPicker extends Component {
         <div>
           <button
             onMouseLeave={this.clear}
-            onMouseOver={this.setColorName}
+            onMouseEnter={this.setColorName.bind(this, 'Coral')}
             className="picker__button picker__button_coral"
           ></button>
           <button
             onMouseLeave={this.clear}
-            onMouseOver={this.setColorName}
+            onMouseEnter={this.setColorName.bind(this, 'Aqua')}
             className="picker__button picker__button_aqua"
           ></button>
           <button
             onMouseLeave={this.clear}
-            onMouseOver={this.setColorName}
+            onMouseEnter={this.setColorName.bind(this, 'Bisque')}
             className="picker__button picker__button_bisque"
           ></button>
         </div>
