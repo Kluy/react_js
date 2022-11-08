@@ -6,14 +6,18 @@ import Spinner from './Spinner';
 class Auth extends Component {
   state = {
     login: false,
+    spinner: false,
   };
 
   login = () => {
-    <Spinner size={50} />;
+    this.setState({
+      spinner: true,
+    });
 
     setTimeout(() => {
       this.setState({
         login: true,
+        spinner: false,
       });
     }, 2000);
   };
@@ -28,11 +32,15 @@ class Auth extends Component {
     return (
       <>
         {this.state.login ? (
-          <>
-            <Logout onLogout={this.logout} />
-          </>
+          <Logout onLogout={this.logout} />
         ) : (
-          <Login onLogin={this.login} />
+          <>
+            {this.state.spinner ? (
+              <Spinner size={50} />
+            ) : (
+              <Login onLogin={this.login} />
+            )}
+          </>
         )}
       </>
     );
