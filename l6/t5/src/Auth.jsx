@@ -9,11 +9,13 @@ class Auth extends Component {
   };
 
   login = () => {
-    this.timeout();
+    <Spinner size={50} />;
 
-    this.setState({
-      login: true,
-    });
+    setTimeout(() => {
+      this.setState({
+        login: true,
+      });
+    }, 2000);
   };
 
   logout = () => {
@@ -22,26 +24,12 @@ class Auth extends Component {
     });
   };
 
-  timeout = () => {
-    return setTimeout(() => {
-      console.log('timeout');
-      return <Logout onLogout={this.logout} />;
-    }, 2000);
-  };
-
-  //  {setTimeout(
-  //             () => (
-  //
-  //             ),
-  //             2000
-  //           )}
-
   render() {
     return (
       <>
         {this.state.login ? (
           <>
-            <Spinner size={50} />
+            <Logout onLogout={this.logout} />
           </>
         ) : (
           <Login onLogin={this.login} />
