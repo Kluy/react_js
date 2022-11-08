@@ -20,13 +20,22 @@ class Auth extends Component {
     });
   };
 
+  timeout = () => {
+    const id = setInterval(() => {}, 2000);
+  };
+
   render() {
     return (
       <>
         {this.state.login ? (
           <>
-            <Spinner size={8} />
-            <Logout onLogout={this.logout} />
+            <Spinner size={50} />
+            {setTimeout(
+              () => (
+                <Logout onLogout={this.logout} />
+              ),
+              2000
+            )}
           </>
         ) : (
           <Login onLogin={this.login} />
