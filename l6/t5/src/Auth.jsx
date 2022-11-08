@@ -9,6 +9,8 @@ class Auth extends Component {
   };
 
   login = () => {
+    this.timeout();
+
     this.setState({
       login: true,
     });
@@ -21,8 +23,18 @@ class Auth extends Component {
   };
 
   timeout = () => {
-    const id = setInterval(() => {}, 2000);
+    return setTimeout(() => {
+      console.log('timeout');
+      return <Logout onLogout={this.logout} />;
+    }, 2000);
   };
+
+  //  {setTimeout(
+  //             () => (
+  //
+  //             ),
+  //             2000
+  //           )}
 
   render() {
     return (
@@ -30,12 +42,6 @@ class Auth extends Component {
         {this.state.login ? (
           <>
             <Spinner size={50} />
-            {setTimeout(
-              () => (
-                <Logout onLogout={this.logout} />
-              ),
-              2000
-            )}
           </>
         ) : (
           <Login onLogin={this.login} />
