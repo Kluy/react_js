@@ -19,13 +19,13 @@ class Page extends Component {
         <div className="actions">
           <button
             className="btn"
-            onClick={this.setText.bind(this, 'Hello,world')}
+            onClick={this.setText.bind(this, 'Hello,world!')}
           >
             Text 1
           </button>
           <button
             className="btn"
-            onClick={this.setText.bind(this, 'Another exciting text')}
+            onClick={this.setText.bind(this, 'Another exciting text.')}
           >
             Text 2
           </button>
