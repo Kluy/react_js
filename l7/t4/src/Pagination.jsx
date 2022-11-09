@@ -1,11 +1,10 @@
 import React from 'react';
+import UsersList from './UsersList';
 
 const Pagination = (props) => {
   const pages = Math.ceil(props.totalItems / props.itemsPerPage);
   let isPrevPageAvailable = false;
   let isNextPageAvailable = pages > 1;
-
-  console.log(isNextPageAvailable);
 
   return (
     <div className="pagination">
