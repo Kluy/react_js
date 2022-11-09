@@ -14,7 +14,7 @@ class Transaction extends Component {
           {moment(this.props.time).format('hh:mm')}
         </span>
         <span className="transaction__assets">
-          {this.props.from} → {this.props.from}
+          {this.props.from} → {this.props.to}
         </span>
         <span className="transaction__rate">{this.props.rate}</span>
         <span className="transaction__amount">
