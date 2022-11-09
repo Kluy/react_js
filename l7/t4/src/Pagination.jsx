@@ -1,5 +1,4 @@
 import React from 'react';
-import UsersList from './UsersList';
 
 const Pagination = (props) => {
   const pages = Math.ceil(props.totalItems / props.itemsPerPage);
