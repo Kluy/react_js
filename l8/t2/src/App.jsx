@@ -3,11 +3,13 @@ import Clock from './Clock';
 
 class App extends Component {
   render() {
-    <>
-      <Clock location="London" offset={0} />
-      <Clock location="Kyiv" offset={2} />
-      <Clock location="Berlin" offset={1} />
-    </>;
+    return (
+      <>
+        <Clock location="London" offset={0} />
+        <Clock location="Kyiv" offset={2} />
+        <Clock location="Berlin" offset={1} />
+      </>
+    );
   }
 }
 
