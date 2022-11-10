@@ -15,7 +15,6 @@ class App extends Component {
   render() {
     return (
       <>
-        <button onClick={this.remove}>Clear</button>
         {!this.state.clear && (
           <>
             <Clock location="London" offset={0} />
@@ -23,6 +22,7 @@ class App extends Component {
             <Clock location="Berlin" offset={1} />
           </>
         )}
+        <button onClick={this.remove}>Clear</button>
       </>
     );
   }
