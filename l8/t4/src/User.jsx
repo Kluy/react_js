@@ -16,19 +16,21 @@ class User extends Component {
   }
 
   render() {
-    return (
-      <div className="user">
-        <img
-          alt="User Avatar"
-          src={this.state.avatar}
-          className="user__avatar"
-        />
-        <div className="user__info">
-          <span className="user__name">{this.state.name}</span>
-          <span className="user__location">{this.state.location}</span>
+    if (this.state.avatar) {
+      return (
+        <div className="user">
+          <img
+            alt="User Avatar"
+            src={this.state.avatar}
+            className="user__avatar"
+          />
+          <div className="user__info">
+            <span className="user__name">{this.state.name}</span>
+            <span className="user__location">{this.state.location}</span>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
