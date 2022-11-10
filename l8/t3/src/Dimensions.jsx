@@ -14,6 +14,7 @@ class Dimensions extends Component {
   };
 
   componentDidMount() {
+    document.title = `${window.innerWidth} x ${window.innerHeight}`;
     window.addEventListener('resize', this.changeSize);
   }
 
@@ -23,7 +24,7 @@ class Dimensions extends Component {
 
   render() {
     return (
-      <div class="dimensions">
+      <div className="dimensions">
         {this.state.width}px - {this.state.height}px
       </div>
     );
