@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 class ConnectionStatus extends Component {
   state = {
-    onLine: 'online',
+    online: 'online',
   };
 
-  statusChange = () => {
+  statusChange = (e) => {
     this.setState({
-      onLine: navigator.onLine ? 'online' : 'offline',
+      online: e.target.navigator.onLine ? 'online' : 'offline',
     });
   };
 
@@ -23,8 +23,12 @@ class ConnectionStatus extends Component {
 
   render() {
     return (
-      <div className={navigator.onLine ? 'status' : 'status status_offline'}>
-        {this.state.onLine}
+      <div
+        className={
+          this.state.online === 'online' ? 'status' : 'status status_offline'
+        }
+      >
+        {this.state.online}
       </div>
     );
   }
