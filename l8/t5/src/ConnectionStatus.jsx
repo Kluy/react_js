@@ -22,20 +22,12 @@ class ConnectionStatus extends Component {
   }
 
   render() {
-    return <div className="status">{this.state.onLine}</div>;
+    let onLineStatus = 'status';
+    if (!navigator.onLine) {
+      onLineStatus += ' status_offline';
+    }
+    return <div className={onLineStatus}>{this.state.onLine}</div>;
   }
-
-  // render() {
-  //   return (
-  //     <>
-  //       {this.state.onLine ? (
-  //         <div className="status">Online</div>
-  //       ) : (
-  //         <div className="status status_offline">Offline</div>
-  //       )}
-  //     </>
-  //   );
-  // }
 }
 
 export default ConnectionStatus;
