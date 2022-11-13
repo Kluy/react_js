@@ -6,8 +6,8 @@ class App extends Component {
     clear: false,
   };
 
-  createUser = () => {
-    console.log();
+  createUser = (userData) => {
+    console.log(userData);
   };
 
   render() {

@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 class UserForm extends Component {
   state = {
-    input: '',
+    name: '',
+    about: '',
+    occupation: '',
   };
 
-  onSubmit = (e) => {
-    alert(`UserForm text: ${this.state.input}`);
-    e.preventDefault();
+  onSubmit = () => {
+    this.props.createUser();
   };
 
   onChange = (e) => {
@@ -18,7 +19,7 @@ class UserForm extends Component {
 
   render() {
     return (
-      <form class="login-form">
+      <form class="login-form" onSubmit={this.onSubmit}>
         <h1 class="form-title">Profile</h1>
         <div class="form-control">
           <label class="form-label" for="name">
@@ -29,7 +30,7 @@ class UserForm extends Component {
             type="text"
             id="name"
             name="name"
-            value=""
+            value={this.state.name}
           />
         </div>
         <div class="form-control">
@@ -47,7 +48,11 @@ class UserForm extends Component {
           <label class="form-label" id="occupation" for="occupation">
             Occupation
           </label>
-          <select name="occupation" class="form-input">
+          <select
+            value={this.state.occupation}
+            name="occupation"
+            class="form-input"
+          >
             <option value="london">London</option>
             <option value="new-york">New York</option>
             <option value="coconut">Sidney</option>
@@ -58,7 +63,7 @@ class UserForm extends Component {
           <label class="form-label" id="about" for="about">
             About
           </label>
-          <textarea name="about" class="form-input"></textarea>
+          <textarea value={this.state.about} name="about" class="form-input" />
         </div>
         <button class="submit-button" type="submit">
           Submit
