@@ -2,56 +2,60 @@ import React, { Component } from 'react';
 
 class UserForm extends Component {
   state = {
-    name: '',
-    about: '',
-    occupation: '',
+    // name: '',
+    // about: '',
+    // occupation: '',
   };
 
-  onSubmit = () => {
-    this.props.createUser();
+  onSubmit = (e) => {
+    e.preventDefault();
+    const a = { ...new FormData(e.target) };
+    console.log(a);
+
+    // this.props.createUser();
   };
 
   onChange = (e) => {
     this.setState({
-      input: e.target.value,
+      name: e.target.value,
     });
   };
 
   render() {
     return (
-      <form class="login-form" onSubmit={this.onSubmit}>
-        <h1 class="form-title">Profile</h1>
-        <div class="form-control">
-          <label class="form-label" for="name">
+      <form className="login-form" onSubmit={this.onSubmit}>
+        <h1 className="form-title">Profile</h1>
+        <div className="form-control">
+          <label className="form-label" htmlFor="name">
             Name
           </label>
           <input
-            class="form-input"
+            className="form-input"
             type="text"
             id="name"
             name="name"
             value={this.state.name}
           />
         </div>
-        <div class="form-control">
-          <label class="form-label" for="student">
+        <div className="form-control">
+          <label className="form-label" htmlFor="student">
             Student
           </label>
           <input
-            class="form-input"
+            className="form-input"
             type="checkbox"
             id="student"
             name="student"
           />
         </div>
-        <div class="form-control">
-          <label class="form-label" id="occupation" for="occupation">
+        <div className="form-control">
+          <label className="form-label" id="occupation" htmlFor="occupation">
             Occupation
           </label>
           <select
             value={this.state.occupation}
             name="occupation"
-            class="form-input"
+            className="form-input"
           >
             <option value="london">London</option>
             <option value="new-york">New York</option>
@@ -59,13 +63,17 @@ class UserForm extends Component {
             <option value="mango">Berlin</option>
           </select>
         </div>
-        <div class="form-control">
-          <label class="form-label" id="about" for="about">
+        <div className="form-control">
+          <label className="form-label" id="about" htmlFor="about">
             About
           </label>
-          <textarea value={this.state.about} name="about" class="form-input" />
+          <textarea
+            value={this.state.about}
+            name="about"
+            className="form-input"
+          />
         </div>
-        <button class="submit-button" type="submit">
+        <button className="submit-button" type="submit">
           Submit
         </button>
       </form>
