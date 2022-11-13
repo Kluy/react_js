@@ -6,7 +6,7 @@ class Search extends Component {
   };
 
   onSubmit = (e) => {
-    alert('Search text: ' + this.state.input);
+    alert(`Search text: ${this.state.input}`);
     e.preventDefault();
   };
 
