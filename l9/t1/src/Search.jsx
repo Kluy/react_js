@@ -5,7 +5,7 @@ class Search extends Component {
     input: '',
   };
 
-  handleClick = (e) => {
+  onSubmit = (e) => {
     alert('Search text: ' + this.state.input);
     e.preventDefault();
   };
@@ -18,16 +18,14 @@ class Search extends Component {
 
   render() {
     return (
-      <form className="search">
+      <form className="search" onSubmit={this.onSubmit}>
         <input
           type="text"
           onChange={this.onChange}
           value={this.state.input}
           className="search__input"
         />
-        <button onClick={this.handleClick} className="search__button">
-          Search
-        </button>
+        <button className="search__button">Search</button>
       </form>
     );
   }
