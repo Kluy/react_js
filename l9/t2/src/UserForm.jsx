@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
 
 class UserForm extends Component {
-  state = {
-    // name: '',
-    // about: '',
-    // occupation: '',
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      name: '',
+      about: '',
+      student: '',
+      occupation: '',
+    };
+  }
 
   onSubmit = (e) => {
     e.preventDefault();
-    const a = { ...new FormData(e.target) };
-    console.log(a);
-
-    // this.props.createUser();
+    this.props.onSubmit(this.state);
   };
 
   onChange = (e) => {
     this.setState({
-      name: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -30,6 +32,7 @@ class UserForm extends Component {
             Name
           </label>
           <input
+            onChange={this.onChange}
             className="form-input"
             type="text"
             id="name"
@@ -42,6 +45,7 @@ class UserForm extends Component {
             Student
           </label>
           <input
+            onChange={this.onChange}
             className="form-input"
             type="checkbox"
             id="student"
@@ -53,6 +57,7 @@ class UserForm extends Component {
             Occupation
           </label>
           <select
+            onChange={this.onChange}
             value={this.state.occupation}
             name="occupation"
             className="form-input"
@@ -68,6 +73,7 @@ class UserForm extends Component {
             About
           </label>
           <textarea
+            onChange={this.onChange}
             value={this.state.about}
             name="about"
             className="form-input"
