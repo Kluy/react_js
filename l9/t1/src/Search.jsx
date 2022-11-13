@@ -5,10 +5,6 @@ class Search extends Component {
     input: '',
   };
 
-  handleClick = (e) => {
-    alert(`Search text: ${this.state.input}`);
-  };
-
   onChange = (e) => {
     this.setState({
       input: e.target.value,
@@ -24,7 +20,10 @@ class Search extends Component {
           value={this.state.input}
           className="search__input"
         />
-        <button onClick={this.handleClick} className="search__button">
+        <button
+          onClick={() => alert(`Search text: ${this.state.input}`)}
+          className="search__button"
+        >
           Search
         </button>
       </form>
