@@ -2,30 +2,31 @@ import React, { Component } from 'react';
 
 class Search extends Component {
   state = {
-    online: 'online',
+    input: '',
   };
 
-  statusChange = (e) => {
+  handleClick = (e) => {
+    alert(`Search text: ${this.state.input}`);
+  };
+
+  onChange = (e) => {
     this.setState({
-      online: e.target.navigator.onLine ? 'online' : 'offline',
+      input: e.target.value,
     });
   };
-
-  componentDidMount() {
-    window.addEventListener('online', this.statusChange);
-    window.addEventListener('offline', this.statusChange);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('online', this.statusChange);
-    window.removeEventListener('offline', this.statusChange);
-  }
 
   render() {
     return (
       <form className="search">
-        <input type="text" className="search__input" />
-        <button className="search__button">Search</button>
+        <input
+          type="text"
+          onChange={this.onChange}
+          value={this.state.input}
+          className="search__input"
+        />
+        <button onClick={this.handleClick} className="search__button">
+          Search
+        </button>
       </form>
     );
   }
