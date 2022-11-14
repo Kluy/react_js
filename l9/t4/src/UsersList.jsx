@@ -15,16 +15,12 @@ class UsersList extends Component {
 
   render() {
     let users = this.props.users.slice();
-    // console.log(users);
-
-    if (this.state.input !== '') {
-      users = users.filter(
-        (elem) => elem.name.toLowerCase() === this.state.input.toLowerCase()
-      );
-    }
-
-    // let users2 = this.props.users.slice();
-    // console.log(users2.map((elem) => elem.name).includes(this.state.input));
+    users = users.map(({ id, name, age }) => {
+      return [name.toLowerCase()].includes(this.state.input.toLowerCase()) ||
+        this.state.input === '' ? (
+        <User key={id} name={name} age={age} />
+      ) : null;
+    });
 
     return (
       <div>
@@ -33,11 +29,7 @@ class UsersList extends Component {
           count={users.length}
           onChange={this.onChange}
         />
-        <ul className="users">
-          {users.map((elem) => (
-            <User key={elem.id} name={elem.name} age={elem.age} />
-          ))}
-        </ul>
+        <ul className="users">{[...users]}</ul>
       </div>
     );
   }
