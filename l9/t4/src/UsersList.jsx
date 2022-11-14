@@ -16,7 +16,7 @@ class UsersList extends Component {
   render() {
     let users = this.props.users.slice();
 
-    if (this.state.input !== '') {
+    if (users.map(({ name }) => name).includes(this.state.input)) {
       users = users.filter(
         (elem) => elem.name.toLowerCase() === this.state.input.toLowerCase()
       );
