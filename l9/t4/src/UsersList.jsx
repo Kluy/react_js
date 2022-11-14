@@ -8,7 +8,6 @@ class UsersList extends Component {
   };
 
   onChange = (e) => {
-    e.preventDefault();
     this.setState({
       input: e.target.value,
     });
@@ -19,7 +18,7 @@ class UsersList extends Component {
 
     if (this.state.input !== '') {
       users = users.filter(
-        (elem) => elem.name.toUpperCase() === this.state.input.toUpperCase()
+        (elem) => elem.name.toLowerCase() === this.state.input.toLowerCase()
       );
     }
 
