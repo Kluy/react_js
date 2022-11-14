@@ -14,13 +14,13 @@ class UsersList extends Component {
   };
 
   render() {
-    let users = this.props.users.slice();
-
-    users = users.filter(
+    let users = this.props.users.filter(
       (elem) =>
         [elem.name.toLowerCase()].includes(this.state.input.toLowerCase()) ||
         this.state.input === ''
     );
+
+    console.log(this.props.users);
 
     return (
       <div>
