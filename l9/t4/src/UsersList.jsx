@@ -3,16 +3,22 @@ import User from './User';
 import Filter from './Filter';
 
 class UsersList extends Component {
-  state = {
-    input: '',
-    users: this.props.users,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      input: '',
+      users: this.props.users,
+    };
+  }
 
   onChange = (e) => {
     this.setState({
       input: e.target.value,
-      users: this.props.users.filter((elem) =>
-        [elem.name.toLowerCase()].includes(e.target.value.toLowerCase())
+      users: this.props.users.filter(
+        (elem) =>
+          [elem.name.toLowerCase()].includes(e.target.value.toLowerCase()) ||
+          e.target.value === ''
       ),
     });
   };
