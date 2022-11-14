@@ -11,10 +11,8 @@ class UsersList extends Component {
   onChange = (e) => {
     this.setState({
       input: e.target.value,
-      users: this.props.users.filter(
-        (elem) =>
-          [elem.name.toLowerCase()].includes(e.target.value.toLowerCase()) ||
-          e.target.value === ''
+      users: this.props.users.filter((elem) =>
+        [elem.name.toLowerCase()].includes(e.target.value.toLowerCase())
       ),
     });
   };
