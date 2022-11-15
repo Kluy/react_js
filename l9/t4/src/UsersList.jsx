@@ -14,23 +14,17 @@ class UsersList extends Component {
   };
 
   render() {
-    let users = this.props.users
-      .filter(
-        (elem) =>
-          [elem.name.toLowerCase()].includes(this.state.input.toLowerCase()) ||
-          this.state.input === ''
-      )
-      .map((elem) => <User key={elem.id} name={elem.name} age={elem.age} />);
-    // console.log(users);
+    let users = this.props.users.slice();
 
-    // if (this.state.input !== '') {
-    //   users = users.filter((elem) =>
-    //     [elem.name.toLowerCase()].includes(this.state.input.toLowerCase())
-    //   );
-    // }
+    if (this.state.input) {
+      users = users.filter((elem) =>
+        [elem.name.toLowerCase()].includes(this.state.input.toLowerCase())
+      );
+    }
 
-    // let users2 = this.props.users.slice();
-    // console.log(users2.map((elem) => elem.name).includes(this.state.input));
+    users = users.map((elem) => (
+      <User key={elem.id} name={elem.name} age={elem.age} />
+    ));
 
     return (
       <div>
