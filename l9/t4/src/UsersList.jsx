@@ -3,35 +3,39 @@ import User from './User';
 import Filter from './Filter';
 
 class UsersList extends Component {
-  state = {
-    input: '',
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      input: '',
+      users: this.props.users,
+    };
+  }
 
   onChange = (e) => {
     this.setState({
       input: e.target.value,
+      users: e.target.value
+        ? this.props.users.filter((elem) =>
+            [elem.name.toLowerCase()].includes(e.target.value.toLowerCase())
+          )
+        : this.props.users,
     });
   };
 
   render() {
-    let users = this.props.users.map((elem) => (
-      <User key={elem.id} name={elem.name} age={elem.age} />
-    ));
-
-    if (this.state.input) {
-      users = users.filter((elem) =>
-        [elem.props.name.toLowerCase()].includes(this.state.input.toLowerCase())
-      );
-    }
-
     return (
       <div>
         <Filter
           filterText={this.state.input}
-          count={users.length}
+          count={this.state.users.length}
           onChange={this.onChange}
         />
-        <ul className="users">{[...users]}</ul>
+        <ul className="users">
+          {this.state.users.map((elem) => (
+            <User key={elem.id} name={elem.name} age={elem.age} />
+          ))}
+        </ul>
       </div>
     );
   }
