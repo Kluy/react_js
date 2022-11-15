@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import UsersList from './UsersList';
+import ReactDOM from 'react-dom/client';
+import Game from './Game';
 import './index.scss';
 
-const root = document.querySelector('#root');
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-ReactDOM.render(<UsersList users={users} />, root);
+root.render(<Game />);
