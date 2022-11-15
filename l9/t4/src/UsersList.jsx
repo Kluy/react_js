@@ -14,25 +14,20 @@ class UsersList extends Component {
   };
 
   render() {
-    let users = this.props.users
-      .map((elem) => {
-        if (
-          [elem.name.toLowerCase()].includes(this.state.input.toLowerCase()) ||
-          !this.state.input
-        )
-          return <User key={elem.id} name={elem.name} age={elem.age} />;
-      })
-      .filter((elem) => elem !== undefined);
+    let users3 = this.props.users.map((elem) => elem.name.toLowerCase());
 
-    // if (this.state.input) {
-    //   users = users.filter((elem) =>
-    //     [elem.name.toLowerCase()].includes(this.state.input.toLowerCase())
-    //   );
-    // }
+    const t = users3.includes(this.state.input.toLowerCase());
 
-    // users = users.map((elem) => (
-    //   <User key={elem.id} name={elem.name} age={elem.age} />
-    // ));
+    let users = this.props.users.slice();
+    if (t) {
+      users = users.filter((elem) =>
+        [elem.name.toLowerCase()].includes(this.state.input.toLowerCase())
+      );
+    }
+
+    users = users.map((elem) => (
+      <User key={elem.id} name={elem.name} age={elem.age} />
+    ));
 
     return (
       <div>
