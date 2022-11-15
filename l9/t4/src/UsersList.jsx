@@ -14,17 +14,15 @@ class UsersList extends Component {
   };
 
   render() {
-    let users = this.props.users.slice();
+    let users = this.props.users.map((elem) => (
+      <User key={elem.id} name={elem.name} age={elem.age} />
+    ));
 
     if (this.state.input) {
       users = users.filter((elem) =>
-        [elem.name.toLowerCase()].includes(this.state.input.toLowerCase())
+        [elem.props.name.toLowerCase()].includes(this.state.input.toLowerCase())
       );
     }
-
-    users = users.map((elem) => (
-      <User key={elem.id} name={elem.name} age={elem.age} />
-    ));
 
     return (
       <div>
