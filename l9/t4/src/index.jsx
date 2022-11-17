@@ -45,6 +45,6 @@ const users = [
     name: 'Sam',
   },
 ];
-const root = document.getElementById('root');
+const root = document.querySelector('#root');
 
 ReactDOM.render(<UsersList users={users} />, root);

@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import Board from './Board';
 
 class Game extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      history: [{ suqares: Array(9).fill(null) }],
+      xIsNext: true,
+    };
+  }
+
   render() {
     return (
       <div className="game">
